@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The portfolio of Shahzaib — thoughtful digital experiences, made with care."
+    />
+    <meta name="theme-color" content="#f5f4ef" />
+    <title>Shahzaib — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f5f4ef;
+        --ink: #171815;
+        --muted: #77786e;
+        --line: #deddd5;
+        --accent: #c8fa63;
+        --mono: "DM Mono", monospace;
+        --sans: "Manrope", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 96px));
+        margin-inline: auto;
+      }
+
+      .mono {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+      }
+
+      .topbar {
+        height: 88px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .wordmark {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: -0.07em;
+      }
+
+      .wordmark span {
+        color: #85867a;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 38px;
+        color: #55564f;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .nav a:not(.nav-cta):hover,
+      .footer-links a:hover {
+        color: var(--ink);
+      }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 17px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink);
+        transition: background 180ms ease, border-color 180ms ease;
+      }
+
+      .nav-cta:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .arrow {
+        font-size: 16px;
+        line-height: 0.8;
+      }
+
+      .hero {
+        min-height: 685px;
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        align-items: center;
+        gap: 72px;
+        padding-block: 74px 84px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+      }
+
+      .eyebrow::before {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #9bbc51;
+        content: "";
+      }
+
+      h1 {
+        margin: 28px 0 25px -7px;
+        font-size: clamp(76px, 10.1vw, 138px);
+        font-weight: 600;
+        letter-spacing: -0.105em;
+        line-height: 0.85;
+      }
+
+      h1 span {
+        display: block;
+        color: #a7a79c;
+      }
+
+      .hero-copy {
+        max-width: 430px;
+        color: #65665e;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        padding: 0 20px;
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        background: var(--ink);
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        transition: transform 180ms ease, background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: #33352f;
+      }
+
+      .text-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .text-link:hover .arrow {
+        transform: translate(2px, -2px);
+      }
+
+      .text-link .arrow {
+        transition: transform 180ms ease;
+      }
+
+      .visual {
+        position: relative;
+        min-height: 450px;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        border-radius: 5px;
+        background: #e8e7df;
+      }
+
+      .visual::before,
+      .visual::after {
+        position: absolute;
+        border: 1px solid rgba(23, 24, 21, 0.12);
+        border-radius: 50%;
+        content: "";
+      }
+
+      .visual::before {
+        width: 390px;
+        height: 390px;
+      }
+
+      .visual::after {
+        width: 300px;
+        height: 300px;
+      }
+
+      .visual-grid {
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(23, 24, 21, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(23, 24, 21, 0.035) 1px, transparent 1px);
+        background-size: 36px 36px;
+        mask-image: radial-gradient(ellipse at center, black 12%, transparent 76%);
+      }
+
+      .orb {
+        position: relative;
+        z-index: 1;
+        width: 204px;
+        height: 204px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: inset -26px -22px 50px rgba(111, 145, 46, 0.18),
+          0 25px 75px rgba(51, 67, 25, 0.12);
+      }
+
+      .orb::before {
+        position: absolute;
+        top: 28px;
+        left: 34px;
+        width: 54px;
+        height: 26px;
+        transform: rotate(-35deg);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+        filter: blur(9px);
+        content: "";
+      }
+
+      .visual-index {
+        position: absolute;
+        z-index: 2;
+        right: 22px;
+        bottom: 20px;
+        color: #73746b;
+      }
+
+      .visual-label {
+        position: absolute;
+        z-index: 2;
+        top: 22px;
+        left: 23px;
+        color: #72736a;
+      }
+
+      .section {
+        border-top: 1px solid var(--line);
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 38px;
+        padding-top: 37px;
+      }
+
+      .section-label {
+        padding-top: 7px;
+        color: var(--muted);
+      }
+
+      .section-heading h2 {
+        max-width: 680px;
+        margin: 0;
+        font-size: clamp(28px, 3.5vw, 43px);
+        font-weight: 500;
+        letter-spacing: -0.065em;
+        line-height: 1.25;
+      }
+
+      .section-heading h2 span {
+        color: #94958b;
+      }
+
+      .work {
+        padding-bottom: 112px;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 58px;
+      }
+
+      .project-art {
+        position: relative;
+        min-height: 285px;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+      }
+
+      .project:nth-child(1) .project-art {
+        background: #e1e1d8;
+      }
+
+      .project:nth-child(2) .project-art {
+        background: #d7dcd5;
+      }
+
+      .browser-card {
+        width: 67%;
+        overflow: hidden;
+        border: 1px solid rgba(23, 24, 21, 0.12);
+        border-radius: 7px;
+        background: #f9f8f3;
+        box-shadow: 0 20px 55px rgba(23, 24, 21, 0.1);
+        transform: rotate(-4deg);
+      }
+
+      .project:nth-child(2) .browser-card {
+        width: 58%;
+        transform: rotate(4deg);
+      }
+
+      .browser-top {
+        height: 23px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding-inline: 9px;
+        border-bottom: 1px solid #e8e7df;
+      }
+
+      .browser-top i {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #c8c8bd;
+      }
+
+      .browser-content {
+        min-height: 146px;
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 13px;
+        padding: 17px;
+      }
+
+      .mock-lines {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-top: 11px;
+      }
+
+      .mock-lines b {
+        width: 82%;
+        height: 10px;
+        border-radius: 10px;
+        background: #272922;
+      }
+
+      .mock-lines b:nth-child(2) {
+        width: 62%;
+        height: 6px;
+        background: #a3a499;
+      }
+
+      .mock-lines b:nth-child(3) {
+        width: 72%;
+        height: 6px;
+        background: #c9c9c0;
+      }
+
+      .mock-lines span {
+        width: 42%;
+        height: 19px;
+        margin-top: 7px;
+        border-radius: 3px;
+        background: var(--accent);
+      }
+
+      .mock-shape {
+        align-self: stretch;
+        border-radius: 4px;
+        background: #dce9be;
+      }
+
+      .project:nth-child(2) .mock-shape {
+        border-radius: 50% 50% 4px 4px;
+        background: #b4c5a5;
+      }
+
+      .project-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 19px 2px 0;
+      }
+
+      .project-info h3 {
+        margin: 0 0 5px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .project-info p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .project-number {
+        color: #83847b;
+      }
+
+      .about {
+        padding-bottom: 100px;
+      }
+
+      .about-copy {
+        grid-column: 2;
+        max-width: 540px;
+        margin: 22px 0 0;
+        color: #65665e;
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      .footer {
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 24px;
+        color: #55564f;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(calc(100% - 40px), 560px);
+        }
+
+        .topbar {
+          height: 72px;
+        }
+
+        .nav {
+          gap: 18px;
+        }
+
+        .nav a:not(.nav-cta) {
+          display: none;
+        }
+
+        .nav-cta {
+          padding: 10px 13px;
+          font-size: 12px;
+        }
+
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          gap: 46px;
+          padding-block: 76px 70px;
+        }
+
+        h1 {
+          margin-left: -4px;
+          font-size: clamp(78px, 19vw, 120px);
+        }
+
+        .visual {
+          min-height: 340px;
+        }
+
+        .visual::before {
+          width: 310px;
+          height: 310px;
+        }
+
+        .visual::after {
+          width: 238px;
+          height: 238px;
+        }
+
+        .orb {
+          width: 164px;
+          height: 164px;
+        }
+
+        .section-heading {
+          grid-template-columns: 1fr;
+          gap: 19px;
+          padding-top: 28px;
+        }
+
+        .section-heading h2 {
+          font-size: 32px;
+        }
+
+        .projects {
+          grid-template-columns: 1fr;
+          gap: 33px;
+          margin-top: 37px;
+        }
+
+        .project-art {
+          min-height: 270px;
+        }
+
+        .work {
+          padding-bottom: 75px;
+        }
+
+        .about {
+          padding-bottom: 70px;
+        }
+
+        .about-copy {
+          grid-column: 1;
+          margin-top: 0;
+        }
+
+        .footer {
+          min-height: 110px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .shell {
+          width: calc(100% - 32px);
+        }
+
+        .hero-actions {
+          gap: 18px;
+        }
+
+        .button {
+          gap: 13px;
+          padding-inline: 16px;
+          font-size: 12px;
+        }
+
+        .text-link {
+          font-size: 12px;
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          gap: 14px;
+          padding-block: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell topbar">
+      <a class="wordmark" href="#" aria-label="Shahzaib home">shahzaib<span>.</span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#about">
+          About me <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="shell hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow mono">Independent creative portfolio</div>
+          <h1 id="hero-title">Hello,<span>I'm Shahzaib.</span></h1>
+          <p class="hero-copy">
+            I bring thoughtful ideas to life through clear design and considered digital
+            experiences.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#work">Explore my work <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#about">
+              A little about me <span class="arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+        <div class="visual" aria-label="Abstract lime-green orb on a soft grid">
+          <div class="visual-grid" aria-hidden="true"></div>
+          <div class="orb" aria-hidden="true"></div>
+          <span class="visual-label mono">Ideas in motion</span>
+          <span class="visual-index mono">01 — 03</span>
+        </div>
+      </section>
+
+      <section class="shell section work" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div class="section-label mono">01 / Selected work</div>
+          <div>
+            <h2 id="work-title">A few things I've been <span>working on.</span></h2>
+            <div class="projects">
+              <article class="project">
+                <div class="project-art" aria-label="Abstract preview of a digital product concept">
+                  <div class="browser-card" aria-hidden="true">
+                    <div class="browser-top"><i></i><i></i><i></i></div>
+                    <div class="browser-content">
+                      <div class="mock-lines"><b></b><b></b><b></b><span></span></div>
+                      <div class="mock-shape"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div>
+                    <h3>Digital product concept</h3>
+                    <p>Product design · 2026</p>
+                  </div>
+                  <span class="project-number mono">01</span>
+                </div>
+              </article>
+              <article class="project">
+                <div class="project-art" aria-label="Abstract preview of a web experience concept">
+                  <div class="browser-card" aria-hidden="true">
+                    <div class="browser-top"><i></i><i></i><i></i></div>
+                    <div class="browser-content">
+                      <div class="mock-lines"><b></b><b></b><b></b><span></span></div>
+                      <div class="mock-shape"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-info">
+                  <div>
+                    <h3>Web experience concept</h3>
+                    <p>Visual design · 2026</p>
+                  </div>
+                  <span class="project-number mono">02</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell section about" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <div class="section-label mono">02 / A little about me</div>
+          <div>
+            <h2 id="about-title">Curious by nature. <span>Intentional by design.</span></h2>
+            <p class="about-copy">
+              I'm Shahzaib. I enjoy turning big ideas into simple, useful experiences. This is
+              where I share what I'm making, what I'm learning, and the details that make good
+              work feel just right.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell footer">
+      <span class="mono">© 2026 Shahzaib</span>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#about">About</a>
+      </div>
+    </footer>
+  </body>
+</html>
